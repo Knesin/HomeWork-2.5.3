@@ -25,13 +25,13 @@ private:
 void Figure::print_info() {
     std::cout << name_ << ':' << std::endl;
     std::cout << (check() ? "Правильная" : "Неправильная") << std::endl;
-    std::cout << "Количество сторон: " << this->sides_count_ << std::endl;
+    std::cout << "Количество сторон: " << sides_count_ << std::endl;
 }
 
 class Triangle : public Figure {
 public:
-    Triangle(const int& a, const int& b, const int& c, const int& A, const int& B, const int& C) :
-        Triangle(a, b, c, A, B, C, 3, "Треугольник") {};
+    Triangle(const int& a, const int& b, const int& c, const int& A, const int& B, const int& C)
+        :Triangle(a, b, c, A, B, C, 3, "Треугольник") {};
     int get_side_a() { return sides_[0]; }
     int get_side_b() { return sides_[1]; }
     int get_side_c() { return sides_[2]; }
@@ -225,6 +225,10 @@ bool Rhombus::check() {
         return false;
 }
 
+void print_info(Figure& f) {
+    f.print_info();
+    std::cout << std::endl;
+}
 
 int main()
 {
@@ -242,27 +246,16 @@ int main()
     Rhombus rh2(30, 100, 80);
 
     setlocale(LC_ALL, "Russian");
-    f.print_info();
-    std::cout << std::endl;
-    t.print_info();
-    std::cout << std::endl;
-    rt.print_info();
-    std::cout << std::endl;
-    rt2.print_info();
-    std::cout << std::endl;
-    it.print_info();
-    std::cout << std::endl;
-    et.print_info();
-    std::cout << std::endl;
-    q.print_info();
-    std::cout << std::endl;
-    r.print_info();
-    std::cout << std::endl;
-    sq.print_info();
-    std::cout << std::endl;
-    p.print_info();
-    std::cout << std::endl;
-    rh.print_info();
-    std::cout << std::endl;
-    rh2.print_info();
+    print_info(f);
+    print_info(t);
+    print_info(rt);
+    print_info(rt2);
+    print_info(it);
+    print_info(et);
+    print_info(q);
+    print_info(r);
+    print_info(sq);
+    print_info(p);
+    print_info(rh);
+    print_info(rh2);
 }
